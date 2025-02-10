@@ -1,4 +1,3 @@
-// /src/components/Button.tsx
 import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
 import { globalStyles } from '../styles/globalStyles';

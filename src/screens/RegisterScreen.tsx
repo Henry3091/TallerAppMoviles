@@ -1,4 +1,3 @@
-// /src/screens/RegisterScreen.tsx
 import React, { useState } from 'react';
 import { View, Text, Alert } from 'react-native';
 import InputField from '../components/InputField';
@@ -6,8 +5,7 @@ import Button from '../components/Button';
 import { globalStyles } from '../styles/globalStyles';
 import { RegisterScreenNavigationProp } from '../navigation/navigationTypes';
 import { encryptPassword } from '../utils/encryption';
- // Asegúrate de tener este archivo
-
+ 
 type Props = {
   navigation: RegisterScreenNavigationProp;
 };

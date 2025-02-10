@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, ImageBackground, StyleSheet } from 'react-native';
-import CryptoJS from 'crypto-js';  // Importamos CryptoJS
+import CryptoJS from 'crypto-js';  
 
 const backgroundImage = require('../../assets/toy-collection-background.jpg');
 
@@ -8,17 +8,14 @@ const LoginScreen = ({ navigation }: any) => {
   const [usuario, setUsuario] = useState('');
   const [contraseña, setContraseña] = useState('');
 
-  // Función para encriptar la contraseña
-  const encriptarContraseña = (contraseña: string) => {
+    const encriptarContraseña = (contraseña: string) => {
     return CryptoJS.AES.encrypt(contraseña, 'clave-secreta').toString();
   };
 
-  // Función para manejar el inicio de sesión
-  const handleLogin = () => {
+    const handleLogin = () => {
     const contraseñaEncriptada = encriptarContraseña(contraseña);
-    console.log("Inicio de sesión:", usuario, contraseñaEncriptada);  // Mostrar en consola la información
-    // Aquí podrías validar con un backend o almacenar la contraseña encriptada
-    navigation.navigate('Home');  // Redirige a la pantalla Home
+    console.log("Inicio de sesión:", usuario, contraseñaEncriptada);  
+    navigation.navigate('Home');  
   };
 
   return (

@@ -1,4 +1,3 @@
-// /src/components/InputField.tsx
 import React from 'react';
 import { TextInput, TextInputProps } from 'react-native';
 import { globalStyles } from '../styles/globalStyles';

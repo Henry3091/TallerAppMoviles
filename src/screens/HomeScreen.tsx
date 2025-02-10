@@ -1,9 +1,7 @@
-// /src/screens/HomeScreen.tsx
 import React from 'react';
 import { View, Text, FlatList, Image } from 'react-native';
 import { globalStyles } from '../styles/globalStyles';
 
-// Añadir la URL o ruta de las imágenes en los productos
 const products = [
   { id: '1', name: 'Juguete A', price: '10 USD', image: require('../../assets/images/toy-collection-1.jpg') },
   { id: '2', name: 'Juguete B', price: '15 USD', image: require('../../assets/images/toy-collection-2.jpg') },
