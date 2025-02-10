@@ -1,33 +1,19 @@
+// /src/components/InputField.tsx
 import React from 'react';
-import { TextInput, View, Text } from 'react-native';
-import { styles } from '../styles/globalStyles';
+import { TextInput, TextInputProps } from 'react-native';
+import { globalStyles } from '../styles/globalStyles';
 
-type InputFieldProps = {
-  label: string;
-  value: string;
-  onChangeText: (text: string) => void;
-  secureTextEntry?: boolean;  
-  placeholder: string;
+type InputFieldProps = TextInputProps & {
+  secureTextEntry?: boolean;
 };
 
-const InputField: React.FC<InputFieldProps> = ({
-  label,
-  value,
-  onChangeText,
-  secureTextEntry = false,
-  placeholder
-}) => {
+const InputField: React.FC<InputFieldProps> = ({ secureTextEntry, ...props }) => {
   return (
-    <View style={styles.inputContainer}>
-      <Text style={styles.inputLabel}>{label}</Text>
-      <TextInput
-        style={styles.input}
-        value={value}
-        onChangeText={onChangeText}
-        secureTextEntry={secureTextEntry}
-        placeholder={placeholder}
-      />
-    </View>
+    <TextInput
+      {...props}
+      secureTextEntry={secureTextEntry}
+      style={globalStyles.input}
+    />
   );
 };
 

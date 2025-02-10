@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput, Button, ImageBackground, StyleSheet } from 'react-native';
+import CryptoJS from 'crypto-js';  // Importamos CryptoJS
 
 const backgroundImage = require('../../assets/toy-collection-background.jpg');
 
 const LoginScreen = ({ navigation }: any) => {
+  const [usuario, setUsuario] = useState('');
+  const [contraseña, setContraseña] = useState('');
+
+  // Función para encriptar la contraseña
+  const encriptarContraseña = (contraseña: string) => {
+    return CryptoJS.AES.encrypt(contraseña, 'clave-secreta').toString();
+  };
+
+  // Función para manejar el inicio de sesión
+  const handleLogin = () => {
+    const contraseñaEncriptada = encriptarContraseña(contraseña);
+    console.log("Inicio de sesión:", usuario, contraseñaEncriptada);  // Mostrar en consola la información
+    // Aquí podrías validar con un backend o almacenar la contraseña encriptada
+    navigation.navigate('Home');  // Redirige a la pantalla Home
+  };
+
   return (
     <ImageBackground source={backgroundImage} style={styles.background}>
       <View style={styles.container}>
@@ -11,15 +28,19 @@ const LoginScreen = ({ navigation }: any) => {
         <TextInput
           style={styles.input}
           placeholder="Usuario"
+          value={usuario}
+          onChangeText={setUsuario}
         />
         <TextInput
           style={styles.input}
           placeholder="Contraseña"
           secureTextEntry
+          value={contraseña}
+          onChangeText={setContraseña}
         />
-        <Button title="Iniciar sesión" onPress={() => {}} />
-          
-              <Text style={styles.navigateText} onPress={() => navigation.navigate('Register')}>
+        <Button title="Iniciar sesión" onPress={handleLogin} />
+
+        <Text style={styles.navigateText} onPress={() => navigation.navigate('Register')}>
           ¿No tienes una cuenta? Regístrate ahora.
         </Text>
       </View>
@@ -38,7 +59,7 @@ const styles = StyleSheet.create({
   container: {
     width: '80%',
     padding: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',  
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
     borderRadius: 10,
     alignItems: 'center',
   },

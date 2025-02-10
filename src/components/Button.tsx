@@ -1,6 +1,7 @@
+// /src/components/Button.tsx
 import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
-import { styles } from '../styles/globalStyles';
+import { globalStyles } from '../styles/globalStyles';
 
 type ButtonProps = {
   title: string;
@@ -9,8 +10,8 @@ type ButtonProps = {
 
 const Button: React.FC<ButtonProps> = ({ title, onPress }) => {
   return (
-    <TouchableOpacity style={styles.button} onPress={onPress}>
-      <Text style={styles.buttonText}>{title}</Text>
+    <TouchableOpacity style={globalStyles.button} onPress={onPress}>
+      <Text style={globalStyles.buttonText}>{title}</Text>
     </TouchableOpacity>
   );
 };

@@ -1,48 +1,38 @@
-// src/styles/globalStyles.ts
+// /src/styles/globalStyles.ts
 import { StyleSheet } from 'react-native';
 
-export const styles = StyleSheet.create({
+export const globalStyles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-  },
-  title: {
-    fontSize: 24,
-    marginBottom: 20,
-  },
-  inputContainer: {
-    width: '100%',
-    marginBottom: 15,
-  },
-  inputLabel: {
-    fontSize: 16,
-    marginBottom: 5,
+    backgroundColor: '#f5f5f5',
   },
   input: {
     width: '100%',
-    height: 40,
+    height: 45,
     borderColor: '#ccc',
     borderWidth: 1,
     borderRadius: 5,
+    marginBottom: 15,
     paddingHorizontal: 10,
   },
   button: {
-    backgroundColor: '#007BFF',
-    padding: 10,
-    borderRadius: 5,
     width: '100%',
+    height: 45,
+    backgroundColor: '#007bff',
+    justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 5,
   },
   buttonText: {
-    color: '#fff',
+    color: 'white',
     fontSize: 16,
   },
-  link: {  // Aquí definimos el estilo para el enlace
-    color: '#007BFF',
-    marginTop: 20,
-    fontSize: 14,
-    textDecorationLine: 'underline', // Esto agrega el subrayado al enlace
+  textLink: {
+    marginTop: 10,
+    color: '#007bff',
+    textDecorationLine: 'underline',
   },
 });
